@@ -345,14 +345,14 @@ In the `nano` editor, copy and paste the following script:
 
 # Define the process you want to check (e.g., armv7-linux-netmuxd)
 PROCESS_NAME="armv7-linux-netmuxd"
-PROCESS_PATH="/home/admin/alt-server/$PROCESS_NAME"
+PROCESS_PATH="/home/pi/alt-server/$PROCESS_NAME"
 
 # Check if the process is running using pgrep
 if ! pgrep -f "$PROCESS_NAME" > /dev/null
 then
     # If the process is not running, start it
     echo "$PROCESS_NAME not running. Starting it now..."
-    nohup "$PROCESS_PATH" > /home/admin/alt-server/log/netmuxd.log 2>&1 &
+    nohup "$PROCESS_PATH" > /home/pi/alt-server/log/netmuxd.log 2>&1 &
 else
     # Process is running
     echo "$PROCESS_NAME is already running."
