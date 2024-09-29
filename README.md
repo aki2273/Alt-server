@@ -298,8 +298,14 @@ Note: you can do this with multiple devices at a time.
    ```
 8. Then add the following lines:
    ```
-   @reboot sleep 20 && /home/pi/alt-server/armv7-linux-netmuxd > /home/pi/alt-server/log/netmuxd.log 2>&1
-   @reboot sleep 20 && ALTSERVER_ANISETTE_SERVER=http://127.0.0.1:6969 /home/pi/alt-server/AltServer-armv7 > /home/pi/alt-server/log/altserver.log 2>&1
+	@reboot sleep 15 && nohup /home/pi/alt-server/armv7-linux-netmuxd > /home/pi/alt-server/log/netmuxd.log 2>&1
+	@reboot sleep 25 && nohup ALTSERVER_ANISETTE_SERVER=http://127.0.0.1:6969 /home/pi/alt-server/AltServer-armv7 > /home/pi/alt-server/log/altserver.log 2>&1
+	*/15 * * * * /home/pi/check_and_run.sh
+	0 */3 * * * pkill -f armv7-linux-netmuxd && sleep 5 && nohup /home/admin/alt-server/armv7-linux-netmuxd > /home/admin/alt-server/log/netmuxd.log 2>&1 &
+	0 */3 * * * pkill -f AltServer-armv7 && sleep 10 && ALTSERVER_ANISETTE_SERVER=http://127.0.0.1:6969 nohup /home/admin/alt-server/AltServer-armv7 > /home/admin/alt-ser>
+
+
+   
    ```
 9. In your `alt-server` folder, make a log folder:
    ```
