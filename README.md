@@ -310,6 +310,109 @@ Note: you can do this with multiple devices at a time.
     ps aux | grep netmuxd
     ps aux | grep AltServer
     ```
+---
+
+## Failsave
+
+### Step 1: Navigate to the Directory
+
+Navigate to the directory where you want to create the script. You can move to your home directory or any other directory you prefer. For example:
+
+```bash
+cd /home/pi
+```
+
+### Step 2: Create the Shell Script File
+
+Use the `nano` text editor to create a file called `check_and_run.sh` (or any name you choose):
+
+```bash
+nano check_and_run.sh
+```
+
+### Step 3: Write the Script
+
+In the `nano` editor, copy and paste the following script:
+
+```bash
+#!/bin/bash
+
+# Define the process you want to check (e.g., armv7-linux-netmuxd)
+PROCESS_NAME="armv7-linux-netmuxd"
+PROCESS_PATH="/home/admin/alt-server/$PROCESS_NAME"
+
+# Check if the process is running using pgrep
+if ! pgrep -f "$PROCESS_NAME" > /dev/null
+then
+    # If the process is not running, start it
+    echo "$PROCESS_NAME not running. Starting it now..."
+    nohup "$PROCESS_PATH" > /home/admin/alt-server/log/netmuxd.log 2>&1 &
+else
+    # Process is running
+    echo "$PROCESS_NAME is already running."
+fi
+```
+
+### Step 4: Save the Script in Nano
+
+Once you’ve pasted the script, follow these steps to save it:
+
+- Press `CTRL + O` to save the file.
+- Press `Enter` to confirm the filename.
+- Then press `CTRL + X` to exit `nano`.
+
+### Step 5: Make the Script Executable
+
+Now that the script is created, you need to make it executable. Run the following command to give execute permissions to the script:
+
+```bash
+chmod +x check_and_run.sh
+```
+
+### Step 6: Test the Shell Script
+
+Run the script manually to test it using the following command:
+
+```bash
+./check_and_run.sh
+```
+
+### Step 7: Check the Output
+
+- The script will check if the process is running.
+- If the process is **not running**, it will start the process and log the output to `/home/admin/alt-server/log/netmuxd.log`.
+- If the process **is already running**, it will display the message: `"armv7-linux-netmuxd is already running."`
+
+### Step 8: Schedule the Script with Cron
+
+Once you're satisfied with the script, you can schedule it to run every 15 minutes using cron.
+
+#### Edit the Crontab File
+
+Open the crontab file by running:
+
+```bash
+crontab -e
+```
+
+#### Add the Cron Job
+
+Add the following line to run the script every 15 minutes:
+
+```bash
+*/15 * * * * /home/pi/check_and_run.sh
+```
+
+#### Save and Exit
+
+After adding the cron job, save and exit the crontab file. If you're using `nano`, press `CTRL + O` to save and `CTRL + X` to exit.
+
+This script ensures that your process (`armv7-linux-netmuxd`) is checked every 15 minutes and is restarted if it’s not running.
+
+
+---
+
+
 
 ## Troubleshooting
 
