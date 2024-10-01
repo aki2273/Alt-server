@@ -21,10 +21,13 @@ If you have any trouble, read the tutorial that this guide is based on. It provi
 
 ## Prerequisites
 
-1. Create a folder on your Pi to store the files we'll be downloading. We'll make one at the default path, which is `/home/pi`:
+1. Open Terminal and run (sudo apt update) then (sudo apt upgrade)
    ```
-   cd ..
-   mkdir pi
+   sudo apt update && sudo apt upgrade
+   ```
+
+1.1. Create a folder on your Pi to store the files we'll be downloading. We'll make one at the default path, which is `/home/pi`:
+   ```
    cd pi
    mkdir alt-server
    ```
@@ -59,7 +62,7 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
 
 ### 1. Installing libplist
 
-4. Install `libplist` from source by first installing dependencies and build tools:
+4. Install `libplist` from source by first installing dependencies and build tools (each at one time):
    ```
    sudo apt-get install \
        build-essential \
