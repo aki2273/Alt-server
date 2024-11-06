@@ -227,6 +227,44 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
    chmod +x AltServer-aarch64
    chmod +x aarch64-linux-netmuxd
    ```
+
+Docker:
+## Installation
+
+1. Update and Upgrade:
+   ```
+   sudo apt-get update && sudo apt-get upgrade
+   ```
+2. Install Docker:
+   ```
+   curl -sSL https://get.docker.com | sh
+   ```
+3. Add a Non-Root User to the Docker Group:
+   ```
+   sudo usermod -aG docker pi
+   ```
+4. Then add permissions to the current user:
+   ```
+   sudo usermod -aG docker ${USER}
+   ```
+5. Check it running with:
+   ```
+   groups ${USER}
+   ```
+6. Reboot:
+   ```
+   sudo reboot
+   ```
+7. Install Docker-Compose:
+   ```
+   sudo apt-get install docker-compose
+   ```
+8. Enable the Docker system service to start your containers on boot:
+   ```
+   sudo systemctl enable docker
+   ```
+
+
 5. Have `Docker` installed on your Pi. If you don't have it installed, follow my guide for it. Run the following command to create the Docker container:
    ```
    docker run -d -v lib_cache:/opt/lib/ --restart=always -p 6969:6969 --name anisette dadoum/anisette-server:latest
