@@ -79,8 +79,8 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
    ```
 6. Build and install it:
    ```
-   ./autogen.sh
-   make
+   sudo ./autogen.sh
+   sudo make
    sudo make install
    ```
 7. You should currently by in the `libplist` folder, so after finishing, go back to the `alt-server` folder:
@@ -107,8 +107,8 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
    cd libimobiledevice-glue
    ```
    ```
-   ./autogen.sh
-   make
+   sudo ./autogen.sh
+   sudo make
    sudo make install
    ```
    ```
