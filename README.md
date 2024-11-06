@@ -224,8 +224,8 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
 3. Place the two binaries within our `alt-server` folder. You can do this easily if you have Netatalk installed or an alternative method of your choice.
 4. While in our `alt-server` folder inside the terminal, enter the following to make the binaries executable:
    ```
-   chmod +x AltServer-aarch64
-   chmod +x aarch64-linux-netmuxd
+   chmod +x AltServer-armv7
+   chmod +x armv7-linux-netmuxd
    ```
 
 Docker:
