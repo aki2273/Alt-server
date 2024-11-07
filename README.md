@@ -339,8 +339,8 @@ Note: you can do this with multiple devices at a time.
    ```
 8. Then add the following lines:
    ```
-	@reboot sleep 15 && nohup /home/pi/alt-server/armv7-linux-netmuxd > /home/pi/alt-server/log/netmuxd.log 2>&1 &
-	@reboot sleep 25 && nohup ALTSERVER_ANISETTE_SERVER=http://127.0.0.1:6969 /home/pi/alt-server/AltServer-armv7 > /home/pi/alt-server/log/altserver.log 2>&1 &
+	@reboot sleep 25 && nohup /home/pi/alt-server/armv7-linux-netmuxd > /home/pi/alt-server/log/netmuxd.log 2>&1
+	@reboot sleep 25 && nohup env ALTSERVER_ANISETTE_SERVER=http://127.0.0.1:6969 /home/pi/alt-server/AltServer-armv7 > /home/pi/alt-server/log/altserver.log 2>&1
 
 	*/15 * * * * /home/pi/check_and_run.sh
 	0 */3 * * * pkill -f armv7-linux-netmuxd && sleep 5 && nohup /home/pi/alt-server/armv7-linux-netmuxd > /home/pi/alt-server/log/netmuxd.log 2>&1 &
