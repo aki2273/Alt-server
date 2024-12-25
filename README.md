@@ -84,9 +84,14 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
 6. Build and install it:
    ```
    sudo ./autogen.sh
+   ```
+   ```
    sudo make
+   ```
+   ```
    sudo make install
    ```
+
 7. You should currently by in the `libplist` folder, so after finishing, go back to the `alt-server` folder:
    ```
    cd ..
@@ -112,7 +117,11 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
    ```
    ```
    sudo ./autogen.sh
+   ```
+   ```
    sudo make
+   ```
+   ```
    sudo make install
    ```
    ```
@@ -144,6 +153,9 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
    ```
    ```
    sudo make install
+   ```
+   ```
+   cd ..
    ```
 
 ### 3. Installing libimobiledevice
