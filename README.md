@@ -46,6 +46,10 @@ Change CONF_SWAPSIZE=100 to CONF_SWAPSIZE=512
    sudo dphys-swapfile swapon
    sudo reboot
    ```
+   ```
+   
+   cd alt-server
+   ```
 3. Install some things before getting started:
    ```
    sudo apt install -y \
